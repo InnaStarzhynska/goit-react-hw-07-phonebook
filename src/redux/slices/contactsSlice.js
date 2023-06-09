@@ -36,7 +36,8 @@ export const contactsSlice = createSlice({
       .addCase(deleteContact.pending, handlePending)
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        const index = state.items.findIndex(item => item.id === payload);
+        const index = state.items.findIndex(item => item.id === payload.id);
+        console.log(index)
         state.items.splice(index, 1);
         state.error = null;
       })
