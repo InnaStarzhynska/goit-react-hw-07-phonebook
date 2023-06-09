@@ -37,7 +37,6 @@ export const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const index = state.items.findIndex(item => item.id === payload.id);
-        console.log(index)
         state.items.splice(index, 1);
         state.error = null;
       })
