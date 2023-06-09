@@ -3,12 +3,12 @@ import Notiflix from 'notiflix';
 import css from './PhonebookForm.module.css';
 import { addContact } from 'redux/fetchContacts';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 export function PhonebookForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = evt => {
