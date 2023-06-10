@@ -2,17 +2,9 @@ import css from './App.module.css';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchAllContacts } from 'redux/fetchContacts';
 
 export function App() {
-const dispatch = useDispatch();
 
-   useEffect(() => {
-      dispatch(fetchAllContacts())
-    }, [dispatch])
-  
   return (
     <div>
       <div className={css.wrapper}>
