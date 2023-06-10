@@ -1,10 +1,10 @@
+import { createSelector } from "@reduxjs/toolkit";
+
 export const selectContacts = state => state.contacts.items;
 
 export const selectFilterValue = state => state.filter;
 
-export const selectFilteredContacts = state => {
-  const contacts = selectContacts(state);
-  const filter = selectFilterValue(state);
+export const selectFilteredContacts = createSelector([selectContacts, selectFilterValue], (contacts, filter) => {
 
   if (contacts && filter) {
     return contacts.filter(contact =>
@@ -12,4 +12,4 @@ export const selectFilteredContacts = state => {
       );
   }
   return contacts
-};
+})
